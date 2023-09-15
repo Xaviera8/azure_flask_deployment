@@ -41,4 +41,7 @@ Get hands-on experience setting up a Flask application, integrate it with data p
 **Tip**: Keep your commits regular and meaningful. This not only backs up your work but also provides a trail of your progress and understanding.
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6a940883a7ee7fabee99069349eebba65dc01464
