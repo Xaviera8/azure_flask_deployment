@@ -1,47 +1,28 @@
-# azure_flask_deployment
+# These are the steps needed to successfully deploy a flask app using the Microsoft Azure Web App Services
 
-## **Week 2 Homework Assignment: Introducing Flask and Azure Deployment**
+## Step 1: Creating a good workspace
+In Google Shell, create a workspace that contains a folder that contains the following:  A folder labeled templates. This is where you will store the various html files for your flask application.  A python file named app.py, this will be the code neeed to run the flas application.  A README.md file that will explain the code involed in this project. A requirements.txt file that included the necessary packages for the app.py to work properly. In this specific instance, flask, faker, and pandas are needed. 
 
-### **Objective**:
-Get hands-on experience setting up a Flask application, integrate it with data processing via Pandas, and deploy the app on Azure App Service. You'll also practice documenting your process and using GitHub for project management.
+## Step 2: Linking with Azure
+In the google shell, you have to download the Azure Command Line Interface to interact with the Azure Cloud Service. This can be done by using the command "curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash"
 
-### **Instructions**:
+## Step 3: Log-in with Azure Account
+After installed, you can login with your Azure Account using the command, az login --use-device-code.
+This will prompt you to click a hyperlink and enter a code that will link your azure account to your google cloud session
 
-#### **1. Setting Up Your Flask Application**:
-- Initiate a new Flask application. You can use one of my to start. I would recommend WK2 -> `flaskapp_0`, or if you want to go off of the more advanced modular version, please see `flaskapp_1`  
-- Integrate Jinja templating to set up a homepage (`base.html`) for your app. 
-- **OPTIONAL**: Use Pandas to load data from a provided file (choose a format: CSV, JSON). Ensure that your data file is less than 10MB for efficient loading. 
-  - Display the data on your homepage using a basic table.
-  - The code that you will want to modify is found in the `app.py` file and in the `data.html` files 
+## Step 4: Change subscription ID
+After you are logged in, you have to change your subscription ID to the subscription linked to your stony brook account.
+You can find the azure student subscription ID with the following command: 'az account list --output table'.
+You can set the subscription ID with the following command: 'az account set --subscription'.
 
-#### **2. Deploying on Azure App Service**:
-- Deploy your Flask application to Azure App Service.
-  - Use the lecture resources as a guide.
-  - For additional help, refer to the [Azure App Service Quickstart for Python](https://learn.microsoft.com/en-us/azure/app-service/quickstart-python).
-- Make sure your application is live and accessible via the provided URL. 
+## Step 5: Creating a resource group 
+Now that the Google shell session and the azure cloud service are linked, you can log into the azure web portal and create a new resource group.
+This can be done on the homepage under the azure services.
 
-#### **(Optional) FastAPI Exploration**:
-- Explore the FastAPI framework.
-- Set up and deploy a basic FastAPI application on Azure App Service.
+## Step 6: Deployment
+The final step to deploy your flask application is to enter the following command into the terminal of your google shell session. 
 
-#### **3. Preparing Your GitHub Submission**:
-- Create a new GitHub repository named `azure_flask_deployment` in your GitHub account.
-- Feel free to re-use parts of your code from prior assignments where necessary 
-  - Include your Python code for the Flask application.
-  - Upload the data file you used.
-  - Ensure your README.md file clearly details:
-    - A step-by-step guide on how you set up and deployed your application. Imagine you're guiding someone unfamiliar with the process.
-    - Make use of markdown features, especially code blocks, to format your instructions neatly. For reference on markdown syntax, refer to the [Markdown Guide](https://www.markdownguide.org/basic-syntax/).
-  - Provide the deployed URL of your application in this README.
+"az webapp up --resource-group 'groupname'> --name 'app-name' --runtime PYTHON:3.9 --sku B1". 
+The values encased in the ' ' must be replaced with the information for your application. 
 
-### **Submission**:
-- Share the link to your `azure_flask_deployment` GitHub repository as your assignment submission.
-- Ensure your repository is public so that it's accessible for review.
-
-**Tip**: Keep your commits regular and meaningful. This not only backs up your work but also provides a trail of your progress and understanding.
-
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 6a940883a7ee7fabee99069349eebba65dc01464
+## After completion, you can view the status of the application and view a preview of it under the overview tab of the application inside azure. 
